@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "867454381997",
+    "project_id": "online-shop-dba0c",
+    "storage_bucket": "online-shop-dba0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867454381997:android:58f11648d776b96e09fb24",
+        "android_client_info": {
+          "package_name": "uz.bdmgroup.onlineshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867454381997-j1is1naqkegv8lsev5monfl07bnod44c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd6SHp7SGvF7npipk0bHKCXWDwQaIoizc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867454381997-j1is1naqkegv8lsev5monfl07bnod44c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
