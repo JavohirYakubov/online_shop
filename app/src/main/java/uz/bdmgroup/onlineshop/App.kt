@@ -11,6 +11,7 @@ class App: MultiDexApplication(){
         MultiDex.install(this)
         Hawk.init(this).build()
         AppDatabese.initDatabase(this)
+        //Comment
     }
 
 }
