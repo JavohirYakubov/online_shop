@@ -15,6 +15,7 @@ import uz.bdmgroup.onlineshop.R
 import uz.bdmgroup.onlineshop.model.ProductModel
 import uz.bdmgroup.onlineshop.screen.MainViewModel
 import uz.bdmgroup.onlineshop.screen.makeorder.MakeOrderActivity
+import uz.bdmgroup.onlineshop.screen.sign.LoginActivity
 import uz.bdmgroup.onlineshop.utils.Constants
 import uz.bdmgroup.onlineshop.utils.PrefUtils
 import uz.bdmgroup.onlineshop.view.CartAdapter
@@ -57,16 +58,20 @@ class CartFragment : Fragment() {
         }
 
         btnMakeOrder.setOnClickListener {
-            val intent = Intent(requireActivity(), MakeOrderActivity::class.java)
-            intent.putExtra(Constants.EXTRA_DATA, (viewModel.productsData.value ?: emptyList<ProductModel>()) as Serializable)
-            startActivity(intent)
+            if (PrefUtils.getToken().isNullOrEmpty()){
+                startActivity(Intent(requireActivity(), LoginActivity::class.java))
+            }else{
+                val intent = Intent(requireActivity(), MakeOrderActivity::class.java)
+                intent.putExtra(Constants.EXTRA_DATA, (viewModel.productsData.value ?: emptyList<ProductModel>()) as Serializable)
+                startActivity(intent)
+            }
         }
 
         loadData()
     }
 
     fun loadData(){
-        viewModel.getProductsByIds(PrefUtils.getCartList().map { it.product_id })
+        viewModel.getProductsByIds(PrefUtils.getCartList().map { it.id })
     }
 
     companion object {

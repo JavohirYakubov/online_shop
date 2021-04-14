@@ -1,6 +1,7 @@
 package uz.bdmgroup.onlineshop.screen
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,7 +16,9 @@ import uz.bdmgroup.onlineshop.screen.changelanguage.ChangeLanguageFragment
 import uz.bdmgroup.onlineshop.screen.favorite.FavoriteFragment
 import uz.bdmgroup.onlineshop.screen.home.HomeFragment
 import uz.bdmgroup.onlineshop.screen.profil.ProfileFragment
+import uz.bdmgroup.onlineshop.screen.sign.LoginActivity
 import uz.bdmgroup.onlineshop.utils.LocaleManager
+import uz.bdmgroup.onlineshop.utils.PrefUtils
 
 class MainActivity : AppCompatActivity() {
     val homeFragment = HomeFragment.newInstance()
@@ -62,8 +65,13 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction().hide(activeFragment).show(favoriteFragment).commit()
                 activeFragment = favoriteFragment
             }else if (it.itemId == R.id.actionProfile){
-                supportFragmentManager.beginTransaction().hide(activeFragment).show(profileFragment).commit()
-                activeFragment = profileFragment
+                if (PrefUtils.getToken().isNullOrEmpty()){
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    return@setOnNavigationItemSelectedListener false
+                }else{
+                    supportFragmentManager.beginTransaction().hide(activeFragment).show(profileFragment).commit()
+                    activeFragment = profileFragment
+                }
             }
 
             return@setOnNavigationItemSelectedListener true

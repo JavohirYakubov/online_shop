@@ -1,12 +1,13 @@
-package uz.bdmgroup.onlineshop.screen
+package uz.bdmgroup.onlineshop.screen.splash
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import uz.bdmgroup.onlineshop.R
+import uz.bdmgroup.onlineshop.screen.MainActivity
+import uz.bdmgroup.onlineshop.screen.sign.LoginActivity
+import uz.bdmgroup.onlineshop.utils.PrefUtils
 
 class SplashActivity : AppCompatActivity() {
 

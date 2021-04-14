@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.makeorder.MakeOrderActivity">
+    android:background="@color/white"
+    tools:context=".screen.sign.LoginActivity">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,7 +42,7 @@
                 android:ellipsize="end"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="Make Order"/>
+                android:text="Sign"/>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewFavorite"
                 android:layout_width="wrap_content"
@@ -69,26 +72,71 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lyPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <EditText
-                        android:id="@+id/edAddress"
+                        android:id="@+id/edPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:hint="Delivery address"/>
+                        android:inputType="phone"
+                        android:text="+998"
+                        android:hint="Phone number"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lySMSCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <EditText
-                        android:id="@+id/edComment"
+                        android:id="@+id/edCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Comment"/>
+                        android:hint="SMS code"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lyFullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <EditText
+                        android:id="@+id/edFullname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Full name"
+                        android:inputType="textPersonName"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lyPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:passwordToggleEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <EditText
+                        android:id="@+id/edPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:inputType="textPassword"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lyRePassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:passwordToggleEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <EditText
+                        android:id="@+id/edRePassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Confirm password"
+                        android:inputType="textPassword"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -97,28 +145,13 @@
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/gray"/>
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="16dp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvTotalAmount"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:text="10.0$"/>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnMakeOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                app:cornerRadius="16dp"
-                android:text="Make Order"/>
-        </LinearLayout>
+            android:layout_height="60dp"
+            android:layout_margin="16dp"
+            app:cornerRadius="16dp"
+            android:text="NEXT"/>
     </LinearLayout>
 
     <FrameLayout

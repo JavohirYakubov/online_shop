@@ -7,6 +7,7 @@ import uz.bdmgroup.onlineshop.model.ProductModel
 object PrefUtils {
     const val PREF_FAVORITES = "pref_favorites"
     const val PREF_CART = "pref_cart"
+    const val PREF_TOKEN= "pref_token"
     const val PREF_FCM_TOKEN= "pref_fcm_token"
 
     fun setFavorite(item: ProductModel){
@@ -33,7 +34,7 @@ object PrefUtils {
 
     fun setCart(item: ProductModel){
         val items = Hawk.get<ArrayList<CartModel>>(PREF_CART, arrayListOf<CartModel>())
-        val cart = items.filter { it.product_id == item.id }.firstOrNull()
+        val cart = items.filter { it.id == item.id }.firstOrNull()
         if (cart != null){
             if (item.cartCount > 0){
                 cart.count = item.cartCount
@@ -54,7 +55,15 @@ object PrefUtils {
 
     fun getCartCount(item: ProductModel): Int{
         val items = Hawk.get<ArrayList<CartModel>>(PREF_CART, arrayListOf<CartModel>())
-        return items.filter { it.product_id == item.id }.firstOrNull()?.count ?: 0
+        return items.filter { it.id == item.id }.firstOrNull()?.count ?: 0
+    }
+
+    fun setToken(value: String){
+        Hawk.put(PREF_TOKEN, value)
+    }
+
+    fun getToken(): String{
+        return Hawk.get(PREF_TOKEN, "")
     }
 
     fun setFCMToken(value: String){
